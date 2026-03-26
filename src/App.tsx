@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Piano as PianoIcon, Guitar as GuitarIcon } from 'lucide-react';
 import { useAppStore } from './store/useAppStore';
 import Header from './components/Header';
@@ -13,6 +14,7 @@ export default function App() {
 
   return (
     <div className="l-app" onClick={() => clearNotes()}>
+      <Analytics />
       <Header />
       <div className="l-controls">
         <StartAudioButton />
