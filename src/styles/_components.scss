@@ -1,0 +1,252 @@
+@use 'variables' as *;
+
+// ─── Start Audio Button ─────────────────────────────────────────────
+.start-audio-btn {
+  padding: 0.5rem 1.25rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-radius: 6px;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  transition: background 0.2s;
+
+  &:hover {
+    background: lighten(#0f3460, 10%);
+  }
+}
+
+.audio-status {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+
+  &--ready {
+    color: var(--octave-4);
+  }
+}
+
+// ─── Legend ──────────────────────────────────────────────────────────
+.legend {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  &__swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    color: var(--text-secondary);
+  }
+}
+
+// ─── Piano ──────────────────────────────────────────────────────────
+.piano {
+  position: relative;
+  height: $piano-white-key-height;
+  user-select: none;
+
+  &__whites {
+    display: flex;
+    height: 100%;
+  }
+
+  &__blacks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $piano-black-key-height;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &__black-wrapper {
+    position: absolute;
+    pointer-events: auto;
+    z-index: 2;
+  }
+}
+
+.piano-key {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 6px;
+  border: 1px solid #ddd;
+  border-radius: 0 0 4px 4px;
+  transition: background-color 0.15s, transform 0.1s;
+
+  &--white {
+    width: $piano-white-key-width;
+    height: $piano-white-key-height;
+    background: var(--key-white);
+    color: #333;
+    z-index: 1;
+
+    &:hover {
+      background: #e8e8e8;
+    }
+  }
+
+  &--black {
+    width: $piano-black-key-width;
+    height: $piano-black-key-height;
+    background: var(--key-black);
+    color: #aaa;
+    border-color: #000;
+    z-index: 2;
+
+    &:hover {
+      background: #333;
+    }
+  }
+
+  &--active {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px 2px var(--highlight-ring);
+    z-index: 10;
+
+    .piano-key__label {
+      color: var(--text-on-color);
+      font-weight: 700;
+    }
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    line-height: 1;
+    pointer-events: none;
+  }
+}
+
+// ─── Guitar ─────────────────────────────────────────────────────────
+.guitar {
+  user-select: none;
+
+  &__fret-numbers {
+    display: flex;
+    align-items: center;
+  }
+
+  &__fret-numbers-spacer {
+    width: 44px;
+    flex-shrink: 0;
+  }
+
+  &__fret-numbers-row {
+    display: flex;
+  }
+
+  &__fret-number {
+    width: $fret-width;
+    text-align: center;
+    font-size: $font-size-xs;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+
+  &__strings {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__markers {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  &__markers-spacer {
+    width: 44px;
+    flex-shrink: 0;
+  }
+
+  &__markers-row {
+    display: flex;
+  }
+
+  &__marker-cell {
+    width: $fret-width;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+
+  &__marker-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    opacity: 0.5;
+  }
+}
+
+.guitar-string {
+  display: flex;
+  align-items: center;
+
+  &__label {
+    width: 44px;
+    text-align: right;
+    padding-right: 8px;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+
+  &__frets {
+    display: flex;
+  }
+}
+
+.guitar-fret {
+  width: $fret-width;
+  height: $fret-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--fret-border);
+  border-right-width: 2px;
+  font-size: $font-size-xs;
+  color: var(--text-on-color);
+  opacity: 0.7;
+  transition: opacity 0.15s, transform 0.1s, box-shadow 0.15s;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  &--open {
+    border-right-width: 4px;
+    border-right-color: var(--string-color);
+    font-weight: 700;
+  }
+
+  &--active {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 2px var(--highlight-ring);
+    z-index: 10;
+    font-weight: 700;
+  }
+
+  &__note {
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(cp -r /e/dev/octave-tmp/* /e/dev/octave/)",
+      "Bash(cp /e/dev/octave-tmp/.gitignore /e/dev/octave/)",
+      "Bash(rm -rf /e/dev/octave-tmp)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)"
+    ],
+    "additionalDirectories": [
+      "E:\\dev\\octave\\octave-tmp"
+    ]
+  }
+}

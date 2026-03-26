@@ -1,0 +1,72 @@
+@use 'variables' as *;
+
+// SMACSS layout rules
+.l-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  gap: 1.5rem;
+}
+
+.l-header {
+  text-align: center;
+
+  h1 {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: $font-size-sm;
+    margin-top: 0.25rem;
+  }
+}
+
+.l-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.l-instruments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.l-piano-container {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 0.5rem;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--bg-surface);
+    border-radius: 3px;
+  }
+}
+
+.l-fretboard-container {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 0.5rem;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--bg-surface);
+    border-radius: 3px;
+  }
+}
