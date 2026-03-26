@@ -7,7 +7,8 @@
       "Bash(rm -rf /e/dev/octave-tmp)",
       "Bash(npm install:*)",
       "Bash(npx tsc:*)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "Bash(node -e \"const { Chord } = require\\(''tonal''\\); console.log\\(Chord.detect\\([''C'', ''E'', ''G'']\\)\\); console.log\\(Chord.detect\\([''C'', ''E'', ''G'', ''B'']\\)\\); console.log\\(Chord.detect\\([''A'', ''C'', ''E'']\\)\\);\")"
     ],
     "additionalDirectories": [
       "E:\\dev\\octave\\octave-tmp"

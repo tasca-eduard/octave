@@ -6,7 +6,6 @@ const DOUBLE_MARKERS = [12, 24];
 
 export default function Guitar() {
   const tuning = useAppStore((s) => s.tuning);
-  // Reverse so string 6 (low E) is at top
   const strings = [...tuning].reverse();
 
   return (

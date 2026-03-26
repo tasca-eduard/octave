@@ -1,11 +1,19 @@
+import { useMemo } from 'react';
 import { useAppStore } from '../store/useAppStore';
-import { getOctaveColor } from '../utils/octaveColor';
-import { Note } from 'tonal';
+import { Note, Chord } from 'tonal';
 import { X } from 'lucide-react';
 
 export default function ActiveNotes() {
   const activeNotes = useAppStore((s) => s.activeNotes);
   const clearNotes = useAppStore((s) => s.clearNotes);
+  const octaveColors = useAppStore((s) => s.octaveColors);
+
+  const chordNames = useMemo(() => {
+    if (activeNotes.length < 2) return [];
+    const pitchClasses = activeNotes.map((midi) => Note.get(Note.fromMidiSharps(midi)).pc);
+    const unique = [...new Set(pitchClasses)];
+    return Chord.detect(unique);
+  }, [activeNotes]);
 
   if (activeNotes.length === 0) {
     return (
@@ -28,13 +36,18 @@ export default function ActiveNotes() {
             <span
               key={midi}
               className="active-notes__chip"
-              style={{ background: getOctaveColor(oct) }}
+              style={{ background: octaveColors[oct] ?? '#666' }}
             >
               {name}
             </span>
           );
         })}
       </div>
+      {chordNames.length > 0 && (
+        <div className="active-notes__chord">
+          {chordNames.slice(0, 3).join(' · ')}
+        </div>
+      )}
       <button className="clear-btn" onClick={(e) => { e.stopPropagation(); clearNotes(); }}>
         <X size={12} />
         Clear

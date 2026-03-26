@@ -1,23 +1,28 @@
 import { create } from 'zustand';
 import { Note } from 'tonal';
 import { DEFAULT_TUNING } from '../music/noteMap';
+import { DEFAULT_OCTAVE_COLORS } from '../utils/octaveColor';
 
 interface AppState {
   activeNotes: number[];
   audioReady: boolean;
   tuning: string[];
+  octaveColors: Record<number, string>;
   toggleNote: (note: string) => void;
   clearNotes: () => void;
   setAudioReady: (ready: boolean) => void;
   isNoteActive: (note: string) => boolean;
   setTuning: (tuning: string[]) => void;
   tuneString: (stringIndex: number, semitones: number) => void;
+  setOctaveColor: (octave: number, color: string) => void;
+  getOctaveColor: (octave: number) => string;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
   activeNotes: [],
   audioReady: false,
   tuning: [...DEFAULT_TUNING],
+  octaveColors: { ...DEFAULT_OCTAVE_COLORS },
   toggleNote: (note) => {
     const midi = Note.midi(note);
     if (midi === null) return;
@@ -43,5 +48,11 @@ export const useAppStore = create<AppState>((set, get) => ({
     const newNote = Note.fromMidiSharps(midi + semitones);
     tuning[stringIndex] = newNote;
     set({ tuning });
+  },
+  setOctaveColor: (octave, color) => {
+    set({ octaveColors: { ...get().octaveColors, [octave]: color } });
+  },
+  getOctaveColor: (octave) => {
+    return get().octaveColors[octave] ?? '#666';
   },
 }));

@@ -1,7 +1,6 @@
 import { useAppStore } from '../../store/useAppStore';
 import { playNote } from '../../audio/synth';
 import { isBlackKey, getOctave } from '../../music/noteMap';
-import { getOctaveColor } from '../../utils/octaveColor';
 
 interface PianoKeyProps {
   note: string;
@@ -11,9 +10,8 @@ interface PianoKeyProps {
 export default function PianoKey({ note, isActive }: PianoKeyProps) {
   const toggleNote = useAppStore((s) => s.toggleNote);
   const audioReady = useAppStore((s) => s.audioReady);
+  const color = useAppStore((s) => s.octaveColors[getOctave(note)] ?? '#666');
   const black = isBlackKey(note);
-  const octave = getOctave(note);
-  const color = getOctaveColor(octave);
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
