@@ -175,6 +175,7 @@
   position: relative;
   height: $piano-white-key-height;
   user-select: none;
+  contain: layout style;
 
   &__whites {
     display: flex;
@@ -268,6 +269,7 @@
 // ─── Guitar ─────────────────────────────────────────────────────────
 .guitar {
   user-select: none;
+  contain: layout style;
 
   &__fret-numbers {
     display: flex;

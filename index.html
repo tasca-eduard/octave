@@ -6,8 +6,8 @@
 
     <!-- Primary Meta -->
     <title>Octave Mapper — Interactive Piano & Guitar Note Visualizer</title>
-    <meta name="description" content="Visualize the relationship between piano octaves and guitar fretboard. Click notes to build chords, see them mapped across both instruments with audio playback. Supports custom tunings." />
-    <meta name="keywords" content="piano, guitar, octave mapper, fretboard, chord builder, music theory, note visualizer, guitar tuning, chord detection" />
+    <meta name="description" content="Interactive piano-to-guitar note mapper. Build chords, see them across both instruments, detect chord names, customize tunings (Drop D, Open G, DADGAD & more). Free online music theory tool with audio playback." />
+    <meta name="keywords" content="piano guitar mapper, octave visualizer, guitar fretboard notes, chord builder tool, music theory app, guitar tuning tool, chord detection, piano to guitar, fretboard chart, drop d tuning, open g tuning, DADGAD, guitar chord finder, piano chord visualizer, note mapping" />
     <meta name="author" content="Octave Mapper" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://octave.devedco.com/" />
@@ -15,7 +15,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Octave Mapper — Interactive Piano & Guitar Note Visualizer" />
-    <meta property="og:description" content="Visualize the relationship between piano octaves and guitar fretboard. Build chords and see them mapped across both instruments." />
+    <meta property="og:description" content="Build chords on piano or guitar and see them mapped across both instruments. Chord detection, custom tunings, audio playback. Free music theory tool." />
     <meta property="og:url" content="https://octave.devedco.com/" />
     <meta property="og:site_name" content="Octave Mapper" />
     <meta property="og:locale" content="en_US" />
@@ -23,7 +23,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Octave Mapper — Piano & Guitar Note Visualizer" />
-    <meta name="twitter:description" content="Interactive tool to visualize notes across piano and guitar. Build chords, change tunings, hear the notes." />
+    <meta name="twitter:description" content="Build chords on piano or guitar, see them on both instruments. Chord detection, 10+ tunings, audio playback. Free online tool." />
 
     <!-- Theme -->
     <meta name="theme-color" content="#0f0f1a" />
@@ -33,10 +33,17 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <!-- Fonts -->
+    <!-- Fonts — preconnect + preload for LCP -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+
+    <!-- Inline critical above-the-fold styles to avoid FOUC / CLS -->
+    <style>
+      body{margin:0;background:#0f0f1a;color:#f0f0f5;font-family:Inter,system-ui,-apple-system,sans-serif}
+      #root{min-height:100vh}
+    </style>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
