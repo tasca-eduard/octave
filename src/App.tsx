@@ -8,6 +8,7 @@ import ActiveNotes from './components/ActiveNotes';
 import Piano from './components/Piano/Piano';
 import Guitar from './components/Guitar/Guitar';
 import TuningSelector from './components/Guitar/TuningSelector';
+import Footer from './components/Footer';
 
 export default function App() {
   const clearNotes = useAppStore((s) => s.clearNotes);
@@ -38,6 +39,7 @@ export default function App() {
           <Guitar />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
