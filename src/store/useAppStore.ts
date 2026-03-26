@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { Note } from 'tonal';
-import { DEFAULT_TUNING, TUNING_PRESETS } from '../music/noteMap';
+import { DEFAULT_TUNING } from '../music/noteMap';
 
 interface AppState {
   activeNotes: number[];
