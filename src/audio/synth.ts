@@ -21,5 +21,5 @@ export async function initAudio(): Promise<void> {
 
 export function playNote(note: string): void {
   if (!synth) return;
-  synth.triggerAttackRelease(note, '8n');
+  synth.triggerAttackRelease(note, 0.25);
 }

@@ -270,6 +270,7 @@
 .guitar {
   user-select: none;
   contain: layout style;
+  min-width: max-content;
 
   &__fret-numbers {
     display: flex;

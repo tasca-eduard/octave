@@ -99,23 +99,30 @@
 
 .l-fretboard-container {
   overflow-x: auto;
+  overflow-y: hidden;
   max-width: 100%;
   padding: 1.5rem;
+  padding-bottom: 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 
   &::-webkit-scrollbar {
-    height: 6px;
+    height: 10px;
   }
 
   &::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--bg-surface);
+    border-radius: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: var(--bg-surface-hover);
-    border-radius: 3px;
+    background: var(--text-tertiary);
+    border-radius: 5px;
+
+    &:hover {
+      background: var(--text-secondary);
+    }
   }
 }
