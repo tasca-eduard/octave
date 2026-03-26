@@ -38,7 +38,7 @@ export default function GuitarFret({ note, fret, isActive }: GuitarFretProps) {
       onClick={handleClick}
       title={note}
     >
-      <span className="guitar-fret__note">{pc}</span>
+      <span className="guitar-fret__note">{pc}<span className="guitar-fret__oct">{octave}</span></span>
     </button>
   );
 }

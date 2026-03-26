@@ -1,12 +1,13 @@
-import { GUITAR_TUNING } from '../../music/noteMap';
+import { useAppStore } from '../../store/useAppStore';
 import GuitarString from './GuitarString';
 
 const FRET_MARKERS = [3, 5, 7, 9, 12, 15, 17, 19, 21, 24];
 const DOUBLE_MARKERS = [12, 24];
 
 export default function Guitar() {
+  const tuning = useAppStore((s) => s.tuning);
   // Reverse so string 6 (low E) is at top
-  const strings = [...GUITAR_TUNING].reverse();
+  const strings = [...tuning].reverse();
 
   return (
     <div className="l-fretboard-container">
@@ -24,9 +25,9 @@ export default function Guitar() {
         <div className="guitar__strings">
           {strings.map((openNote, i) => (
             <GuitarString
-              key={openNote + i}
+              key={i}
               openNote={openNote}
-              stringIndex={GUITAR_TUNING.length - 1 - i}
+              stringIndex={tuning.length - 1 - i}
             />
           ))}
         </div>

@@ -6,18 +6,15 @@ export async function initAudio(): Promise<void> {
   await Tone.start();
   if (!synth) {
     synth = new Tone.PolySynth(Tone.Synth, {
-      maxPolyphony: 6,
-      voice: Tone.Synth,
-      options: {
-        oscillator: { type: 'triangle8' },
-        envelope: {
-          attack: 0.01,
-          decay: 0.3,
-          sustain: 0.2,
-          release: 0.8,
-        },
+      oscillator: { type: 'triangle8' },
+      envelope: {
+        attack: 0.01,
+        decay: 0.3,
+        sustain: 0.2,
+        release: 0.8,
       },
     }).toDestination();
+    synth.maxPolyphony = 6;
     synth.volume.value = -8;
   }
 }

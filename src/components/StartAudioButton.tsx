@@ -1,3 +1,4 @@
+import { Volume2, CheckCircle } from 'lucide-react';
 import { useAppStore } from '../store/useAppStore';
 import { initAudio } from '../audio/synth';
 
@@ -6,7 +7,12 @@ export default function StartAudioButton() {
   const setAudioReady = useAppStore((s) => s.setAudioReady);
 
   if (audioReady) {
-    return <span className="audio-status audio-status--ready">Audio Ready</span>;
+    return (
+      <span className="audio-status audio-status--ready">
+        <CheckCircle size={14} />
+        Audio Ready
+      </span>
+    );
   }
 
   return (
@@ -17,7 +23,8 @@ export default function StartAudioButton() {
         setAudioReady(true);
       }}
     >
-      🔊 Start Audio
+      <Volume2 size={16} />
+      Start Audio
     </button>
   );
 }

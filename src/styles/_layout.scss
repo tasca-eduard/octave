@@ -6,52 +6,93 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 1.5rem 1rem;
-  gap: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  gap: 2rem;
 }
 
 .l-header {
   text-align: center;
 
   h1 {
-    font-size: $font-size-xl;
+    font-size: $font-size-2xl;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   p {
     color: var(--text-secondary);
-    font-size: $font-size-sm;
-    margin-top: 0.25rem;
+    font-size: $font-size-base;
+    margin-top: 0.5rem;
+    font-weight: 400;
   }
 }
 
 .l-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .l-instruments {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   width: 100%;
   max-width: 1400px;
+}
+
+.l-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.l-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.25rem;
+
+  svg {
+    color: var(--text-tertiary);
+  }
+
+  span {
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
 }
 
 .l-piano-container {
   overflow-x: auto;
   max-width: 100%;
-  padding-bottom: 0.5rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 
   &::-webkit-scrollbar {
     height: 6px;
   }
 
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
   &::-webkit-scrollbar-thumb {
-    background: var(--bg-surface);
+    background: var(--bg-surface-hover);
     border-radius: 3px;
   }
 }
@@ -59,14 +100,22 @@
 .l-fretboard-container {
   overflow-x: auto;
   max-width: 100%;
-  padding-bottom: 0.5rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 
   &::-webkit-scrollbar {
     height: 6px;
   }
 
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
   &::-webkit-scrollbar-thumb {
-    background: var(--bg-surface);
+    background: var(--bg-surface-hover);
     border-radius: 3px;
   }
 }
